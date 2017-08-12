@@ -1,0 +1,15 @@
+1.  stdint.h is a header file which introduces some typedefs that specify exact-width integer types. It has intN_t for signed and uintN_t for unsigned int where N is the number of bits.
+2.  Using these makes it clear that you want to use the data in a specific way. For example, in RGB, each value can be from 0 to 255. So for this case, we would want to use uint8_t which ranges from 0 to 255.
+3.  BYTE = 1 byte, DWORD = 4 bytes, LONG = 4 bytes, WORD = 2 bytes
+4.  The first 2 bytes in BMP file is 0x42 0x4D in hexadecimal which corresponds to the letters 'B' and 'M' in ASCII.
+5.  bfSize is the size of the whole BMP file in bytes, which includes the headerfiles, while biSize is the size of the BITMAPINFOHEADER header file. biSize is constant and it equals 40 bytes
+6.  If biHeight is negative then image is top-down device-independent bitmap and the origin is upper left corner.
+7.  biBitCount
+8.  In line 24, we are opening the file for reading. We might receive NULL for any number of reasons like - file not existing, or no read permissions etc.
+    In line 32, we are opening the file for writing. We might not have permissions to write a file in that directory and hence will receive NULL pointer. 
+9.  fread takes quantity as the 3rd argument and size as the 2nd argument. So we are reading/writing the size amount of data 1 at a time, like 1 pixel at a time etc.
+10. If bi.biWidth = 3 then bi.biWidth * sizeof(RGBTRIPLE) = 3 * 3 = 9
+    Which implies that padding = (4 - (9%4))%4 = 3
+    So the padding = 3.
+11. fseek() is used to move file pointer associated with a given file to a specific position.
+12. It denotes file pointer’s current position.
